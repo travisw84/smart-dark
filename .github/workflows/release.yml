@@ -33,7 +33,7 @@ jobs:
           mkdir -p release
           (cd dist && zip -qr "../release/smart-dark-$V.zip" .)
           (cd release && sha256sum "smart-dark-$V.zip" > "smart-dark-$V.zip.sha256")
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v4
         with:
           subject-path: release/smart-dark-*.zip
       - name: Publish

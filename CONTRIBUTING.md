@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping. Bug reports, "this site looks wrong" reports and pull requests are all welcome.
+Bug reports, "this site looks wrong" reports and pull requests are all welcome.
 
 ## Set up
 
@@ -26,10 +26,10 @@ The e2e suite also refreshes the screenshots in docs/. If your change did not al
 
 ## Pull requests
 
-- Keep each pull request to one change.
+- One change per pull request.
 - Add a test that fails without your change. For theming bugs, a small synthetic page in tests/extension.spec.mjs is ideal.
 - Run npx prettier --write on the files you edited.
-- Keep user-facing copy plain and direct.
+- Write user-facing copy in plain words, with real numbers where you have them.
 - Say what you tested by hand, and on which sites.
 - A change that adds a permission or sends new data off the device needs a clear reason in the description, and an update to README.md and PRIVACY.md.
 
@@ -37,6 +37,6 @@ The e2e suite also refreshes the screenshots in docs/. If your change did not al
 
 Use the "A site looks wrong" issue form. A public page address, the theme method, and a screenshot with Smart Dark on and off are enough to start.
 
-## Ground rules
+## License
 
-By contributing you agree your work is released under the MIT license. See the code of conduct for how we treat each other.
+Your contribution is released under the MIT license. The code of conduct covers how we talk to each other.

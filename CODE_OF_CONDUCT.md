@@ -1,21 +1,19 @@
 # Code of conduct
 
-This project is for people who want to make dark mode on the web better. Be kind, stay on topic and assume good intent.
+Keep it kind and keep it about the work.
 
-## Expected
+## What we expect
 
-- Give feedback on the work and not on the person.
-- Say what you saw and what you expected, and be patient with people who are learning.
-- Respect other people's time. Search existing issues first.
+- Criticise the code, the design or the bug. Leave the person out of it.
+- Say what you saw and what you expected. Be patient with people who are still learning.
+- Search existing issues before you open a new one.
 
-## Not acceptable
+## What gets you removed
 
-- Harassment, insults, slurs, or personal attacks.
-- Publishing someone else's private information.
-- Spam, or repeated pressure on maintainers.
+Harassment, insults, slurs, personal attacks, publishing someone's private information, and spam. The maintainer can edit or delete comments, close threads and block accounts that do any of these.
 
-## Enforcement
+## Reporting
 
-The maintainer may edit or remove comments, close threads, or block accounts that break these rules. To report a problem, open a private security advisory on this repository or contact the maintainer through their GitHub profile.
+Open a private security advisory on this repository, or message the maintainer through their GitHub profile.
 
-This code is adapted in spirit from the Contributor Covenant, version 2.1.
+This code follows the spirit of the Contributor Covenant 2.1.

@@ -33,10 +33,10 @@ After rebuilding, choose Reload on the extension's card, then reload the website
 - On a light page it first tries the site's own dark theme: a `dark` class, or a `data-theme`, `data-color-mode`, `data-bs-theme` or `data-mode` attribute that the site's CSS already defines. It checks that the page really turned dark. If the site changes the attribute back, it stops using that method for the page and uses the next one.
 - Otherwise it mirrors the site's own stylesheets. Every colour in a rule (backgrounds, text, borders, outlines, fills, gradients) is mapped to a dark equivalent, and the mirrored rule keeps the same selector, media query and cascade layer. Hover, focus and other states, and elements added later, therefore follow the site's own rules. It reads `rgb()`, `hsl()`, `hwb()`, `oklab()`, `oklch()`, hex and named colours, and uses a one pixel canvas for `lab()`, `lch()`, `color-mix()` and wide gamut colours.
 - CSS variables that hold colours get dark companions, and the rules that use them point at the companions. Tailwind style `rgb(... / var(--opacity))` colours keep their opacity variable. Shorthands such as `background` and `border` are mirrored as colour longhands only, so they never reset sizes or positions that other rules set.
-- Stylesheets from other origins are fetched through the extension's service worker with credentials omitted and a size limit. Private network addresses are only fetched when the page itself is on that origin.
+- The service worker fetches stylesheets from other origins, with credentials omitted and a size limit. It fetches private network addresses only when the page itself is on that origin.
 - A second pass handles what stylesheets cannot reach: inline styles, colours that stay light, and text with too little contrast. It tags elements with a few shared attributes, so many elements reuse one rule. Dark logos with transparent backgrounds are lightened. It works in short slices and does not read styles per element on every frame.
-- Sites that remove the extension's style tags get them back.
-- Dark Reader's MIT API is bundled only for the optional **Dark Reader** theme method. All executable code ships inside the extension.
+- If a site removes the extension's style tags, Smart Dark puts them back.
+- Smart Dark bundles Dark Reader's MIT API for the optional **Dark Reader** theme method. All executable code ships inside the extension.
 - Turning Smart Dark off removes every style and attribute it added. Per-site settings are stored by origin, including the scheme and port.
 
 ## Jev screenshots
@@ -82,7 +82,7 @@ See `docs/verification.md` for measured results.
 
 Some pages will still look better in their original theme. Pick Original for those in the popup.
 
-- Colours come from a fixed mapping, not from a design. Text over a photograph can lose contrast, because the mapping cannot see the picture behind it.
+- A fixed mapping picks the colours by rule. Text over a photograph can lose contrast, because the mapping cannot see the picture behind it.
 - Only dark logos with transparent backgrounds that the extension can read are lightened. Cross-origin images, CSS background images and photographs are left alone.
 - Shadow DOM, canvas, WebGL and inline SVG with hard-coded colours are not themed.
 - Elements fixed by the second pass keep their colour on hover, because their colour is a snapshot.
@@ -90,7 +90,7 @@ Some pages will still look better in their original theme. Pick Original for tho
 - Site theme first covers sites that switch theme through a class or one of the attributes above. Sites that follow only the system colour scheme use the rewritten colours instead.
 - Chrome blocks extensions on its own pages and the Web Store.
 
-Cross-site learning, region-selection repair and image-based region edits are ideas, not features.
+Cross-site learning, region-selection repair and image-based region edits are not built.
 
 ## Credits
 

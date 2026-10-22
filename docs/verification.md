@@ -7,7 +7,7 @@
 - Build: esbuild produced bundled local MV3 scripts and included the Dark Reader MIT license.
 - Dependency audit: npm audit returned 0 vulnerabilities across production and development dependencies.
 - Visual review: inspected the real popup document and settings screenshots, plus the original/adaptive synthetic gallery using the built-in computer-use browser and the generated image docs/preview.png.
-- Local responsiveness: latest complete-suite synthetic navigation-to-dark was 97 ms. Previous fixture runs were approximately 93–216 ms. These are small local fixtures, not a general real-world benchmark or an AI latency measurement. Rendering yields across animation frames and never waits for Jev.
+- Local responsiveness: latest complete-suite synthetic navigation-to-dark was 97 ms. Previous fixture runs were about 93 to 216 ms. These are small local fixtures, not a general real-world benchmark or an AI latency measurement. Rendering yields across animation frames and never waits for Jev.
 
 ## Independent review and verified fixes
 
@@ -17,7 +17,7 @@ One independent, read-only reviewer found five issues. Each was reproduced with 
 2. Stale same-page image decisions: content/text/input/scroll changes advance the document revision. In-flight results are discarded when revision, token, URL, focus or settings change.
 3. Cross-page AI cache reuse: cache keys are SHA-256 digests of URL + source style fingerprint + treatment + exact screenshot. Images and URLs are not stored in the cache.
 4. CSS growth during SPA replacement: retire detached subtree records and recycle empty CSSStyleRule objects. Repeated replacements now stay within a bounded rule pool.
-5. Concurrent settings saves: serialize the complete read–merge–write operation. Both concurrent patches persist.
+5. Concurrent settings saves: serialize each read, merge and write as one step, so both concurrent patches persist.
 
 Also verified native class restoration preserves unrelated application classes, default mode preserves foreign Dark Reader styling, compatibility mode works, global disable restores original styling, and AI opt-out wins over an in-flight response.
 

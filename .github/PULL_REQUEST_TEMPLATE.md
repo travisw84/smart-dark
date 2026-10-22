@@ -1,8 +1,8 @@
 ## What this changes
 
-Describe the problem and the new behaviour. Link the issue if there is one.
+The problem, the new behaviour, and the issue if there is one.
 
-## How you checked it
+## How you tested it
 
 - [ ] npm test
 - [ ] npm run build
@@ -11,4 +11,4 @@ Describe the problem and the new behaviour. Link the issue if there is one.
 
 ## Notes for the reviewer
 
-Anything risky, anything you left out, and any permission or privacy impact.
+Risks, anything you left out, and any change to permissions or to data that leaves the browser.

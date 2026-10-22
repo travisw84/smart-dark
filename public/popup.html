@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Smart Dark</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body class="popup">
+    <header>
+      <div class="brand">
+        <span class="moon" aria-hidden="true">◒</span>
+        <div>
+          <h1>Smart Dark</h1>
+          <p>Dark mode, site by site.</p>
+        </div>
+      </div>
+      <label class="switch"
+        ><input
+          id="enabled"
+          disabled
+          type="checkbox"
+          role="switch"
+          aria-label="Dark mode enabled" /><span></span
+      ></label>
+    </header>
+    <main>
+      <section class="site">
+        <div class="eyebrow">THIS WEBSITE</div>
+        <h2 id="site">Checking website…</h2>
+        <div class="segmented" role="group" aria-label="Website appearance">
+          <button data-mode="auto" aria-pressed="false">Auto</button
+          ><button data-mode="dark" aria-pressed="false">Dark</button
+          ><button data-mode="original" aria-pressed="false">Original</button>
+        </div>
+        <p id="status" class="status" role="status">Reading local theme…</p>
+        <p id="detail" class="muted"></p>
+      </section>
+      <section>
+        <div class="row">
+          <label for="palette">Dark palette</label
+          ><select id="palette" disabled>
+            <option value="neutral">Charcoal</option>
+            <option value="warm">Warm charcoal</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="engine">Theme method</label
+          ><select id="engine" disabled>
+            <option value="adaptive">Site theme first</option>
+            <option value="compatibility">Dark Reader</option>
+          </select>
+        </div>
+      </section>
+      <section class="vision">
+        <div class="row">
+          <h2>Jev image check</h2>
+          <span class="badge">BETA</span>
+        </div>
+        <p class="muted">
+          Ask Jev whether to keep this theme or restore the original.
+        </p>
+        <button id="analyze" class="primary">Check this page with Jev</button>
+        <p id="ai-status" class="muted" role="status"></p>
+      </section>
+    </main>
+    <footer>
+      <button id="options" class="text-button">
+        Settings &amp; image privacy <span aria-hidden="true">↗</span>
+      </button>
+    </footer>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

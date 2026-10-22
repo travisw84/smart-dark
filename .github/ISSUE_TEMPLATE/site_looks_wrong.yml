@@ -1,0 +1,42 @@
+name: A site looks wrong
+description: A website is hard to read, too bright, or styled badly in dark mode.
+labels: [site-compat]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Page address
+      description: Use a public page. Do not paste addresses that contain tokens or private information.
+    validations:
+      required: true
+  - type: dropdown
+    id: method
+    attributes:
+      label: Theme method
+      options:
+        - Site theme first
+        - Dark Reader
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Popup mode for this site
+      options:
+        - Auto
+        - Dark
+        - Original
+    validations:
+      required: true
+  - type: textarea
+    id: shots
+    attributes:
+      label: Screenshots
+      description: Drag in a screenshot with Smart Dark on, and one with it off. Crop out private content.
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: What looks wrong
+      description: For example low contrast text, a bright panel, a hover state, or a missing image.

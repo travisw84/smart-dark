@@ -1,0 +1,43 @@
+{
+  "name": "smart-dark",
+  "version": "0.2.0",
+  "description": "Adaptive dark mode for Chrome. Uses a site's own dark theme when it has one, otherwise rewrites its colours. Optional Jev screenshot checks.",
+  "license": "MIT",
+  "author": "travisw84",
+  "homepage": "https://github.com/travisw84/smart-dark#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/travisw84/smart-dark.git"
+  },
+  "bugs": {
+    "url": "https://github.com/travisw84/smart-dark/issues"
+  },
+  "keywords": [
+    "chrome-extension",
+    "dark-mode",
+    "manifest-v3",
+    "css",
+    "accessibility",
+    "jev",
+    "typesafe"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "playwright test",
+    "check": "npm test && npm run build && npm run test:e2e",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "darkreader": "4.9.133"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "esbuild": "0.28.2",
+    "prettier": "3.9.10"
+  }
+}

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Smart Dark settings</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body class="options">
+    <main class="settings-shell">
+      <a class="wordmark" href="popup.html">◒ Smart Dark</a>
+      <div class="eyebrow">SMART DARK SETTINGS</div>
+      <h1>Set up Smart Dark.</h1>
+      <p class="intro">
+        Use a site's own dark theme where possible. Otherwise, Smart Dark
+        adjusts its colours. Optional Jev image checks can help choose a theme.
+      </p>
+      <form id="settings">
+        <section class="settings-card">
+          <div class="row">
+            <h2>Jev image checks</h2>
+            <span class="badge">EXPERIMENTAL</span>
+          </div>
+          <p>
+            Each check sends a screenshot of the visible page to
+            <a
+              href="https://docs.typesafe.ai/images"
+              target="_blank"
+              rel="noreferrer"
+              >TypeSafe / Jev</a
+            >. Screenshots can include private messages, documents and form
+            values. Smart Dark does not save them. TypeSafe's terms govern how
+            it processes and retains them.
+          </p>
+          <label class="check"
+            ><input id="aiEnabled" type="checkbox" /><span
+              >Enable screenshot sharing with TypeSafe / Jev</span
+            ></label
+          ><label class="field" for="key">Your TypeSafe API key</label
+          ><input
+            id="key"
+            type="password"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Paste your personal API key"
+          />
+          <p id="key-status" class="muted"></p>
+          <button id="remove-key" type="button" class="text-button">
+            Remove saved key</button
+          ><label class="check"
+            ><input id="autoVision" type="checkbox" /><span
+              >Check pages automatically when Smart Dark is unsure</span
+            ></label
+          >
+          <p class="muted">
+            Automatic checks are off by default. They capture the active page
+            only while Chrome has focus. Smart Dark allows up to 30 image
+            requests per UTC day and waits at least 30 seconds between automatic
+            requests on the same tab. Manual checks count toward the daily
+            limit. TypeSafe may charge for requests.
+          </p>
+          <p class="muted">
+            A result stays with the page until you navigate, change settings or
+            its overall colours change. Checks stop if a frame cannot be
+            inspected or a password, payment or one-time-code field is visible.
+            These checks cannot identify every private page. Keep screenshot
+            sharing off on sensitive sites.
+          </p>
+        </section>
+        <section class="settings-card">
+          <h2>Local appearance</h2>
+          <div class="row">
+            <label for="palette">Palette</label
+            ><select id="palette">
+              <option value="neutral">Charcoal</option>
+              <option value="warm">Warm charcoal</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="engine">Theme method</label
+            ><select id="engine">
+              <option value="adaptive">Site theme first</option>
+              <option value="compatibility">Dark Reader</option>
+            </select>
+          </div>
+          <p class="muted">
+            Site theme first uses the website's dark CSS where available, then
+            adjusts colours if needed. Try Dark Reader if a page looks wrong.
+            Choose Original in the popup to leave a site unchanged.
+          </p>
+        </section>
+        <div class="save-row">
+          <button class="primary" type="submit">Save settings</button>
+          <p id="saved" role="status"></p>
+        </div>
+      </form>
+      <p class="muted">
+        Dark mode works without Jev. Smart Dark stores your key in this
+        browser's extension storage and does not sync it or share it with
+        websites. Chrome internal pages and the Web Store block theme
+        extensions.
+      </p>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>
